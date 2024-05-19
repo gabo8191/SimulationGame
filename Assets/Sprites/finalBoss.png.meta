@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 746e8af2eaf4b0a4eb72a5cf96da57f1
+guid: a59450bf25aa0c744b0f677edd313040
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,11 +136,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mapa 2_0
+      name: finalBoss_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -150,18 +150,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71be9f99baceff44da32241a682bb809
-      internalID: -926892081
+      spriteID: 209445cca0d01a64689f29964a4e0405
+      internalID: -2025483782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_1
+      name: finalBoss_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 288
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -171,18 +171,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1e27af7ff050bb4687b37a2e12f5112
-      internalID: 2055449689
+      spriteID: 0e2a84e8e66063446981b805539117c2
+      internalID: 1993419925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_2
+      name: finalBoss_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 288
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -192,123 +192,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49c8720469cf9924fa9649b423a63408
-      internalID: 748555827
+      spriteID: 9d58d2173c35f134181df520c777a70f
+      internalID: 1848587583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f0d6cbcc8035db4a8c786bd47588028
-      internalID: 64430260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00e75433ca2f5b14caf20b6356dfba61
-      internalID: 123418805
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 216a562d4db8329448d53a4a9a3fe600
-      internalID: 666535315
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce4a10c5e95ef294893237bff7523082
-      internalID: 495917701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93d6f794fc5bfc04d86f4378830c7989
-      internalID: 815079899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_8
+      name: finalBoss_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -318,18 +213,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a920e66ec97d7354d8a8b8e950121e07
-      internalID: -2016073030
+      spriteID: 34ca05e19bae3ef4d9a1bc6eb655ae7f
+      internalID: -561746828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_9
+      name: finalBoss_4
       rect:
         serializedVersion: 2
         x: 32
-        y: 256
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -339,18 +234,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5de7760b6e92a44a8ff3d937cd70079
-      internalID: 955983079
+      spriteID: e144dc58e3a27f04098fad49d7b5b016
+      internalID: 1235735637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_10
+      name: finalBoss_5
       rect:
         serializedVersion: 2
         x: 64
-        y: 256
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -360,81 +255,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc4c82657ebcb5740b1e421798ae9971
-      internalID: 109407498
+      spriteID: 577220fea18f03043b04f84184808895
+      internalID: 264847332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a750421e504a5e34fada6020a7176e53
-      internalID: 72471278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_12
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 831fe6c810e44184eb90cacb303d5737
-      internalID: 286394492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_13
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc3bd6ddb373bb748a5e846e6d2b7b4c
-      internalID: 2129177292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_14
+      name: finalBoss_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -444,18 +276,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a8700cfdebb4846a075e847eafd8ab
-      internalID: 761414943
+      spriteID: d46a6ea059bc37a48a45dfc9ca3b76a7
+      internalID: -1792069448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_15
+      name: finalBoss_7
       rect:
         serializedVersion: 2
         x: 32
-        y: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -465,18 +297,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05243c6516626734fa954d0c501dd532
-      internalID: -1835638417
+      spriteID: 1e3f8288fd9830b44a39827211a38992
+      internalID: 731756871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_16
+      name: finalBoss_8
       rect:
         serializedVersion: 2
         x: 64
-        y: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -486,39 +318,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98b9d2c73ebeca741a74d71f311fa9f6
-      internalID: 894021024
+      spriteID: db383a3b028a7824f8e32d4119dadb3d
+      internalID: 749713779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_17
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ba1d73d071024841b6db7804a4c5644
-      internalID: -401734830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_18
+      name: finalBoss_9
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -528,18 +339,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 914c0332aa94806418570c7a89f3ccc5
-      internalID: -1860950366
+      spriteID: da755f11ae4cf7f40b1bea0842e4038f
+      internalID: -1676886865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_19
+      name: finalBoss_10
       rect:
         serializedVersion: 2
         x: 32
-        y: 192
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -549,18 +360,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32c4b40ce9178d44d9d21fd1f7fbe6cb
-      internalID: -451712953
+      spriteID: 9b8c6e4d13d4bb340b76216b4dfc0acd
+      internalID: -433198032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mapa 2_20
+      name: finalBoss_11
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -570,29 +381,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e9236f49f0a848438870a53aa165d54
-      internalID: 1355786408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mapa 2_21
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b43156428b867b34fa16f1cd49263129
-      internalID: -328664128
+      spriteID: 4413ab773a9e6144f8004d32142e21b8
+      internalID: 799265749
       vertices: []
       indices: 
       edges: []
@@ -608,28 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mapa 2_0: -926892081
-      Mapa 2_1: 2055449689
-      Mapa 2_10: 109407498
-      Mapa 2_11: 72471278
-      Mapa 2_12: 286394492
-      Mapa 2_13: 2129177292
-      Mapa 2_14: 761414943
-      Mapa 2_15: -1835638417
-      Mapa 2_16: 894021024
-      Mapa 2_17: -401734830
-      Mapa 2_18: -1860950366
-      Mapa 2_19: -451712953
-      Mapa 2_2: 748555827
-      Mapa 2_20: 1355786408
-      Mapa 2_21: -328664128
-      Mapa 2_3: 64430260
-      Mapa 2_4: 123418805
-      Mapa 2_5: 666535315
-      Mapa 2_6: 495917701
-      Mapa 2_7: 815079899
-      Mapa 2_8: -2016073030
-      Mapa 2_9: 955983079
+      finalBoss_0: -2025483782
+      finalBoss_1: 1993419925
+      finalBoss_10: -433198032
+      finalBoss_11: 799265749
+      finalBoss_2: 1848587583
+      finalBoss_3: -561746828
+      finalBoss_4: 1235735637
+      finalBoss_5: 264847332
+      finalBoss_6: -1792069448
+      finalBoss_7: 731756871
+      finalBoss_8: 749713779
+      finalBoss_9: -1676886865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -39,18 +39,20 @@ public class GameManager : MonoBehaviour
         HUD.ActualizarPuntos(puntosTotales);
     }
 
-    public void RestarVida()
+    public void RestarVida(int cantidad)
     {
-        vidas--;
+        vidas -= cantidad;
 
-        if(vidas == 0)
+        if (vidas <= 0)
         {
-            SceneManager.LoadScene(0);
+            // Aquí puedes hacer lo que desees cuando el jugador pierde todas las vidas,
+            // por ejemplo, reiniciar la escena o mostrar un menú de juego over.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+        // Actualiza la interfaz para reflejar la cantidad actual de vidas
         HUD.desactivarVida(vidas);
     }
-
     public bool RecuperarVida()
     {
         if(vidas == 3)
