@@ -5,10 +5,13 @@ using UnityEngine;
 public class FlyEnemy : MonoBehaviour
 {
     public Transform objetivo;
+    public float vida;
     public float velocidad;
     public bool debePerseguir;
-    public float distancia; // Qu� tan lejos est� el enemigo del objetivo
+    public float distancia; // Qu� tan lejos est� el enemigo del objetivo
     public float distanciaAbsoluta;
+    private Animator animator;
+    public GameObject dropPrefab; // Prefab del objeto que se soltará al morir
 
     private Rigidbody2D rb;
 
@@ -16,6 +19,7 @@ public class FlyEnemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,5 +67,22 @@ public class FlyEnemy : MonoBehaviour
                 GameManager.Instance.RestarVida(1);
             
         }
+    }
+
+    public void TomarDaño(float daño)
+    {
+        vida -= daño;
+
+        if(vida <= 0)
+        {
+            Muerte();
+        }
+    }
+
+    private void Muerte()
+    {
+        //animator.SetTrigger("Muerte");
+        Instantiate(dropPrefab, transform.position, Quaternion.identity); // Instanciar el drop en la posición del enemigo
+        Destroy(gameObject); // Destruir el enemigo
     }
 }
