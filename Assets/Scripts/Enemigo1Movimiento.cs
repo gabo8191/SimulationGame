@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Enemigo1Movimiento : MonoBehaviour
 {
-    // Variables públicas configurables desde el Inspector
+    // Variables pï¿½blicas configurables desde el Inspector
     public float speed;  // Velocidad del enemigo
-    public float tiempoParaCambiar;  // Tiempo entre posibles cambios de dirección
+    public float tiempoParaCambiar;  // Tiempo entre posibles cambios de direcciï¿½n
     public float fuerzaSalto;  // Fuerza del salto
 
     // Variables privadas para el control interno
     private float contadorT;
-    private float seed;  // Semilla para el generador de números pseudoaleatorios
+    private float seed;  // Semilla para el generador de nï¿½meros pseudoaleatorios
 
-    // Parámetros para el método de congruencia lineal
+    // Parï¿½metros para el mï¿½todo de congruencia lineal
     private const float a = 1664525f;
     private const float c = 1013904223f;
     private const float m = 4294967296f;
@@ -23,22 +23,22 @@ public class Enemigo1Movimiento : MonoBehaviour
 
 
     public Transform objetivo;
-    public float distancia; // Qué tan lejos está el enemigo del objetivo
+    public float distancia; // Quï¿½ tan lejos estï¿½ el enemigo del objetivo
     public float distanciaAbsoluta;
 
 
     void Start()
     {
-        // Inicializamos el contador con el tiempo configurado para cambiar de dirección
+        // Inicializamos el contador con el tiempo configurado para cambiar de direcciï¿½n
         contadorT = tiempoParaCambiar;
 
         // Inicializamos la semilla con un valor arbitrario
         seed = Random.Range(0f, m);
 
-        // Invocamos el método saltar a intervalos regulares
+        // Invocamos el mï¿½todo saltar a intervalos regulares
         InvokeRepeating("Saltar", 2f, 3f);
 
-        // Desactiva la rotación del Rigidbody2D
+        // Desactiva la rotaciï¿½n del Rigidbody2D
         rbd.freezeRotation = true;
     }
 
@@ -47,7 +47,7 @@ public class Enemigo1Movimiento : MonoBehaviour
         // Calculamos la distancia entre el enemigo y el objetivo
         distanciaAbsoluta = Vector2.Distance(transform.position, objetivo.position);
 
-        // Si el objetivo está lo suficientemente cerca, perseguirlo
+        // Si el objetivo estï¿½ lo suficientemente cerca, perseguirlo
         if (distanciaAbsoluta < distancia)
         {
             // Movimiento del enemigo hacia el objetivo
@@ -66,7 +66,7 @@ public class Enemigo1Movimiento : MonoBehaviour
         }
         else
         {
-            // Si el objetivo está lejos, seguir moviéndose pseudoaleatoriamente
+            // Si el objetivo estï¿½ lejos, seguir moviï¿½ndose pseudoaleatoriamente
             if (esDerecha)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
@@ -82,35 +82,35 @@ public class Enemigo1Movimiento : MonoBehaviour
         // Decrementamos el contador de tiempo
         contadorT -= Time.deltaTime;
 
-        // Verificamos si es momento de evaluar un cambio de dirección
+        // Verificamos si es momento de evaluar un cambio de direcciï¿½n
         if (contadorT <= 0)
         {
             // Reiniciamos el contador
             contadorT = tiempoParaCambiar;
 
-            // Generamos un número pseudoaleatorio
+            // Generamos un nï¿½mero pseudoaleatorio
             seed = LinearCongruentialGenerator(seed, a, c, m);
 
-            // Determinamos la nueva dirección basándonos en el número generado
+            // Determinamos la nueva direcciï¿½n basï¿½ndonos en el nï¿½mero generado
             esDerecha = (seed / m) < 0.5f;
         }
 
-        // Aseguramos que la rotación del enemigo sea siempre cero en el eje Z
+        // Aseguramos que la rotaciï¿½n del enemigo sea siempre cero en el eje Z
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 
     void Saltar()
     {
-        // Añadimos una fuerza hacia arriba para simular el salto
+        // Aï¿½adimos una fuerza hacia arriba para simular el salto
         rbd.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
 
-        // Opcional: cambiar de dirección después de un salto
+        // Opcional: cambiar de direcciï¿½n despuï¿½s de un salto
         seed = LinearCongruentialGenerator(seed, a, c, m);
         esDerecha = (seed / m) < 0.5f;
     }
 
-    // Método de congruencia lineal para generar números pseudoaleatorios
+    // Mï¿½todo de congruencia lineal para generar nï¿½meros pseudoaleatorios
     float LinearCongruentialGenerator(float seed, float a, float c, float m)
     {
         return (a * seed + c) % m;
@@ -125,3 +125,4 @@ public class Enemigo1Movimiento : MonoBehaviour
         }
     }
 }
+

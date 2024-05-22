@@ -7,8 +7,15 @@ public class Combat : MonoBehaviour
     [SerializeField] private Transform controladorGolpe;
     [SerializeField] private float radioGolpe;
     private float dañoGolpe; // Ahora se calculará en el método Golpe()
+    private float seed;  // Semilla para el generador de números pseudoaleatorios
 
-    private void Update() {
+    private void Start()
+    {
+        seed = RandomGenerator.GetInitialSeed(); // Inicializar semilla para el generador
+    }
+
+    private void Update()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Golpe();
@@ -17,21 +24,24 @@ public class Combat : MonoBehaviour
 
     private void Golpe()
     {
-        dañoGolpe = CalcularDañoMonteCarlo();  // Calcular daño usando Monte Carlo
+        dañoGolpe = CalcularDañoMonteCarlo();
         Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
 
         foreach (Collider2D colisionador in objetos)
         {
             if (colisionador.CompareTag("Enemy"))
             {
-                colisionador.transform.GetComponent<FlyEnemy>().TomarDaño(dañoGolpe);
+                colisionador.GetComponent<Health>().TakeDamage(dañoGolpe);
             }
         }
     }
 
     private float CalcularDañoMonteCarlo()
     {
-        float rand = Random.value;
+        // Actualizar la semilla usando el generador de números pseudoaleatorios
+        seed = RandomGenerator.Generate(seed);
+        float rand = seed / 4294967296f; // Convertir semilla a un valor entre 0 y 1
+
         if (rand < 0.5)  // 50% de probabilidad
         {
             return Random.Range(10, 16);  // Daño entre 10 y 15
@@ -46,9 +56,9 @@ public class Combat : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos() 
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);    
+        Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
     }
 }

@@ -5,21 +5,38 @@ using UnityEngine;
 public class FlyEnemy : MonoBehaviour
 {
     public Transform objetivo;
-    public float vida;
     public float velocidad;
     public bool debePerseguir;
     public float distancia; // Qu� tan lejos est� el enemigo del objetivo
     public float distanciaAbsoluta;
     private Animator animator;
     public GameObject dropPrefab; // Prefab del objeto que se soltará al morir
-
+    private Health healthComponent;
+    private EnemyDrops enemyDropsComponent;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+
+        healthComponent = gameObject.GetComponent<Health>();
+        if (healthComponent == null)
+        {
+            healthComponent = gameObject.AddComponent<Health>();
+        }
+
+        // Configurar la salud máxima, por ejemplo
+        healthComponent.maxHealth = 100;
+
+        // Añadir el componente EnemyDrops
+        enemyDropsComponent = gameObject.GetComponent<EnemyDrops>();
+        if (enemyDropsComponent == null)
+        {
+            enemyDropsComponent = gameObject.AddComponent<EnemyDrops>();
+            // Configurar drops aquí, por ejemplo:
+            enemyDropsComponent.possibleDrops = new List<GameObject>(); // Agregar objetos de drop
+        }
     }
 
     // Update is called once per frame
@@ -63,26 +80,20 @@ public class FlyEnemy : MonoBehaviour
 
             //QUITAR VIDA AL JUGADOR
 
-            
-                GameManager.Instance.RestarVida(1);
-            
+
+            GameManager.Instance.RestarVida(0);
+
         }
     }
 
     public void TomarDaño(float daño)
     {
-        vida -= daño;
-
-        if(vida <= 0)
-        {
-            Muerte();
-        }
+        healthComponent.TakeDamage(daño);
     }
 
     private void Muerte()
     {
-        //animator.SetTrigger("Muerte");
-        Instantiate(dropPrefab, transform.position, Quaternion.identity); // Instanciar el drop en la posición del enemigo
-        Destroy(gameObject); // Destruir el enemigo
+        enemyDropsComponent.DropItem();
+        Destroy(gameObject);
     }
 }
