@@ -27,7 +27,7 @@
     private IEnumerator Golpear()
     {
         // Activar la animación de golpe
-        animator.SetTrigger("Golpe");
+        animator.SetTrigger("Golpear");
         yield return null;
 
 
