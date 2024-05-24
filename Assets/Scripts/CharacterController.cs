@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -17,6 +16,9 @@ public class CharacterController : MonoBehaviour
     private float saltosRestantes;
     private Animator animator;
     private bool puedeMoverse = true;
+    private bool impulsoActivo = false;
+
+    public static CharacterController Instance;
 
     private void Start()
     {
@@ -24,6 +26,8 @@ public class CharacterController : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         saltosRestantes = saltosMaximos;
         animator = GetComponent<Animator>();
+
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -50,17 +54,15 @@ public class CharacterController : MonoBehaviour
         {
             saltosRestantes--;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
-            rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * (impulsoActivo ? fuerzaSalto * 2 : fuerzaSalto), ForceMode2D.Impulse);
             AudioManager.Instance.ReproducirSonido(sonidoSalto);
         }
     }
 
     void ProcesarMovimiento()
     {
-        // Si no puede moverse, salimos de la funcion
         if (!puedeMoverse) return;
 
-        // Lógica de movimiento
         float inputMovimiento = Input.GetAxis("Horizontal");
 
         if (inputMovimiento != 0f)
@@ -72,17 +74,15 @@ public class CharacterController : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        rigidBody.velocity = new Vector2(inputMovimiento * velocidad, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(inputMovimiento * (impulsoActivo ? velocidad * 2 : velocidad), rigidBody.velocity.y);
 
         GestionarOrientacion(inputMovimiento);
     }
 
     void GestionarOrientacion(float inputMovimiento)
     {
-        // Si se cumple condición
         if ((mirandoDerecha == true && inputMovimiento < 0) || (mirandoDerecha == false && inputMovimiento > 0))
         {
-            // Ejecutar código de volteado
             mirandoDerecha = !mirandoDerecha;
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
@@ -90,7 +90,6 @@ public class CharacterController : MonoBehaviour
 
     public void AplicarGolpe()
     {
-
         puedeMoverse = false;
 
         Vector2 direccionGolpe;
@@ -111,16 +110,55 @@ public class CharacterController : MonoBehaviour
 
     IEnumerator EsperarYActivarMovimiento()
     {
-        // Esperamos antes de comprobar si esta en el suelo.
         yield return new WaitForSeconds(0.1f);
 
         while (!EstaEnSuelo())
         {
-            // Esperamos al siguiente frame.
             yield return null;
         }
 
-        // Si ya está en suelo activamos el movimiento.
         puedeMoverse = true;
     }
+
+    public void ActivarImpulso()
+    {
+        StartCoroutine(AumentarVelocidadPorTiempo(2f, 5f)); // Multiplica velocidad por 2 durante 5 segundos
+    }
+
+    IEnumerator AumentarVelocidadPorTiempo(float factor, float duracion)
+    {
+        impulsoActivo = true;
+        yield return new WaitForSeconds(duracion);
+        impulsoActivo = false;
+    }
+
+    public void ActivarSalto()
+    {
+        StartCoroutine(AumentarFuerzaSaltoPorTiempo(2f, 5f)); // Multiplica fuerza de salto por 2 durante 5 segundos
+    }
+
+    IEnumerator AumentarFuerzaSaltoPorTiempo(float factor, float duracion)
+    {
+        fuerzaSalto *= factor;
+        yield return new WaitForSeconds(duracion);
+        fuerzaSalto /= factor;
+    }
+
+    public void AumentarVida()
+    {
+        StartCoroutine(RecuperarVida()); // Recuperar una vida
+    }
+
+    IEnumerator RecuperarVida()
+    {
+        bool vidaRecuperada = GameManager.Instance.RecuperarVida();
+        if (!vidaRecuperada)
+        {
+            yield break;
+
+        }
+        yield return null;
+    }
+
+
 }

@@ -22,6 +22,7 @@ public class HUD : MonoBehaviour
     public void desactivarVida(int vida)
     {
         vidas[vida].SetActive(false);
+        
     }
 
     public void activarVida(int vida)

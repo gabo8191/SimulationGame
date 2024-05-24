@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyDrops : MonoBehaviour
 {
-    public List<GameObject> possibleDrops; // Lista de posibles drops
+    public List<GameObject> possibleDrops;
     private string lastDrop = "None";
 
     private Dictionary<string, float[]> dropChances = new Dictionary<string, float[]>
@@ -32,8 +32,19 @@ public class EnemyDrops : MonoBehaviour
 
         if (dropIndex != -1)
         {
-            Instantiate(possibleDrops[dropIndex], transform.position, Quaternion.identity);
+            GameObject drop = Instantiate(possibleDrops[dropIndex], transform.position, Quaternion.identity);
             lastDrop = possibleDrops[dropIndex].name;
+
+            if (lastDrop.Equals("Drop1"))
+            {
+                drop.AddComponent<DropLife>();
+            }else if (lastDrop.Equals("Drop2"))
+            {
+                drop.AddComponent<DropJump>();
+            }else if (lastDrop.Equals("Drop3"))
+            {
+                drop.AddComponent<DropSpeed>();
+            }
         }
     }
 }
