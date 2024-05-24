@@ -1,127 +1,148 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class Enemigo1Movimiento : MonoBehaviour
-{
-    // Variables públicas configurables desde el Inspector
-    public float speed;  // Velocidad del enemigo
-    public float tiempoParaCambiar;  // Tiempo entre posibles cambios de dirección
-    public float fuerzaSalto;  // Fuerza del salto
-
-    // Variables privadas para el control interno
-    private float contadorT;
-    private float seed;  // Semilla para el generador de números pseudoaleatorios
-
-    // Parámetros para el método de congruencia lineal
-    private const float a = 1664525f;
-    private const float c = 1013904223f;
-    private const float m = 4294967296f;
-
-    private bool esDerecha;
-    public Rigidbody2D rbd;
-
-
-    public Transform objetivo;
-    public float distancia; // Qué tan lejos está el enemigo del objetivo
-    public float distanciaAbsoluta;
-
-
-    void Start()
+    public class Enemigo1Movimiento : MonoBehaviour
     {
-        // Inicializamos el contador con el tiempo configurado para cambiar de dirección
-        contadorT = tiempoParaCambiar;
+        // Variables pï¿½blicas configurables desde el Inspector
+        public float speed;  // Velocidad del enemigo
+        public float tiempoParaCambiar;  // Tiempo entre posibles cambios de direcciï¿½n
+        public float fuerzaSalto;  // Fuerza del salto
 
-        // Inicializamos la semilla con un valor arbitrario
-        seed = Random.Range(0f, m);
+        // Variables privadas para el control interno
+        private float contadorT;
+        private float seed;  // Semilla para el generador de nï¿½meros pseudoaleatorios
 
-        // Invocamos el método saltar a intervalos regulares
-        InvokeRepeating("Saltar", 2f, 3f);
+        // Parï¿½metros para el mï¿½todo de congruencia lineal
+        private const float a = 1664525f;
+        private const float c = 1013904223f;
+        private const float m = 4294967296f;
 
-        // Desactiva la rotación del Rigidbody2D
-        rbd.freezeRotation = true;
-    }
+        private bool esDerecha;
+        public Rigidbody2D rbd;
 
-    void Update()
-    {
-        // Calculamos la distancia entre el enemigo y el objetivo
-        distanciaAbsoluta = Vector2.Distance(transform.position, objetivo.position);
 
-        // Si el objetivo está lo suficientemente cerca, perseguirlo
-        if (distanciaAbsoluta < distancia)
+        public Transform objetivo;
+        public float distancia; // Quï¿½ tan lejos estï¿½ el enemigo del objetivo
+        public float distanciaAbsoluta;
+
+
+        void Start()
         {
-            // Movimiento del enemigo hacia el objetivo
-            if (transform.position.x < objetivo.position.x)
-            {
-                transform.position += Vector3.right * speed * Time.deltaTime;
-                transform.localScale = new Vector3(-1, 1, 1);
-                esDerecha = true;
-            }
-            else
-            {
-                transform.position += Vector3.left * speed * Time.deltaTime;
-                transform.localScale = new Vector3(1, 1, 1);
-                esDerecha = false;
-            }
-        }
-        else
-        {
-            // Si el objetivo está lejos, seguir moviéndose pseudoaleatoriamente
-            if (esDerecha)
-            {
-                transform.position += Vector3.right * speed * Time.deltaTime;
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else
-            {
-                transform.position += Vector3.left * speed * Time.deltaTime;
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-
-        // Decrementamos el contador de tiempo
-        contadorT -= Time.deltaTime;
-
-        // Verificamos si es momento de evaluar un cambio de dirección
-        if (contadorT <= 0)
-        {
-            // Reiniciamos el contador
+            // Inicializamos el contador con el tiempo configurado para cambiar de direcciï¿½n
             contadorT = tiempoParaCambiar;
 
-            // Generamos un número pseudoaleatorio
-            seed = LinearCongruentialGenerator(seed, a, c, m);
+            // Inicializamos la semilla con un valor arbitrario
+            seed = Random.Range(0f, m);
 
-            // Determinamos la nueva dirección basándonos en el número generado
+            // Invocamos el mï¿½todo saltar a intervalos regulares
+            InvokeRepeating("Saltar", 2f, 3f);
+
+            // Desactiva la rotaciï¿½n del Rigidbody2D
+            rbd.freezeRotation = true;
+
+        }
+
+        void Update()
+        {
+            // Calculamos la distancia entre el enemigo y el objetivo
+            distanciaAbsoluta = Vector2.Distance(transform.position, objetivo.position);
+
+            // Si el objetivo estï¿½ lo suficientemente cerca, perseguirlo
+            if (distanciaAbsoluta < distancia)
+            {
+                // Movimiento del enemigo hacia el objetivo
+                if (transform.position.x < objetivo.position.x)
+                {
+                    transform.position += Vector3.right * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    esDerecha = true;
+                }
+                else
+                {
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(1, 1, 1);
+                    esDerecha = false;
+                }
+            }
+            else
+            {
+                // Si el objetivo estï¿½ lejos, seguir moviï¿½ndose pseudoaleatoriamente
+                if (esDerecha)
+                {
+                    transform.position += Vector3.right * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+            }
+
+            // Decrementamos el contador de tiempo
+            contadorT -= Time.deltaTime;
+
+            // Verificamos si es momento de evaluar un cambio de direcciï¿½n
+            if (contadorT <= 0)
+            {
+                // Reiniciamos el contador
+                contadorT = tiempoParaCambiar;
+
+                // Generamos un nï¿½mero pseudoaleatorio
+                seed = LinearCongruentialGenerator(seed, a, c, m);
+
+                // Determinamos la nueva direcciï¿½n basï¿½ndonos en el nï¿½mero generado
+                esDerecha = (seed / m) < 0.5f;
+            }
+
+            // Aseguramos que la rotaciï¿½n del enemigo sea siempre cero en el eje Z
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+
+        void Saltar()
+        {
+            // Aï¿½adimos una fuerza hacia arriba para simular el salto
+            rbd.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+
+            // Opcional: cambiar de direcciï¿½n despuï¿½s de un salto
+            seed = LinearCongruentialGenerator(seed, a, c, m);
             esDerecha = (seed / m) < 0.5f;
         }
 
-        // Aseguramos que la rotación del enemigo sea siempre cero en el eje Z
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
-
-
-    void Saltar()
-    {
-        // Añadimos una fuerza hacia arriba para simular el salto
-        rbd.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
-
-        // Opcional: cambiar de dirección después de un salto
-        seed = LinearCongruentialGenerator(seed, a, c, m);
-        esDerecha = (seed / m) < 0.5f;
-    }
-
-    // Método de congruencia lineal para generar números pseudoaleatorios
-    float LinearCongruentialGenerator(float seed, float a, float c, float m)
-    {
-        return (a * seed + c) % m;
-    }
-
-    //QUITAR VIDA AL JUGADOR
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        // Mï¿½todo de congruencia lineal para generar nï¿½meros pseudoaleatorios
+        float LinearCongruentialGenerator(float seed, float a, float c, float m)
         {
-            GameManager.Instance.RestarVida(1);
+            return (a * seed + c) % m;
+        }
+
+    //CONFIGURAR LA GRAVEDAD
+
+
+        //QUITAR VIDA AL JUGADOR
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                GameManager.Instance.RestarVida(1);
+            }
+
+            //APENAS CHOQUE CON EL MAPA , CAMBIA DE DIRECCION
+            if (collision.gameObject.CompareTag("Ground"))
+        {
+                if (esDerecha)
+            {
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                else
+            {
+                    transform.position += Vector3.right * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+            }
+
         }
     }
-}
+
