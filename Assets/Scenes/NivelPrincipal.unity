@@ -16021,7 +16021,7 @@ Transform:
   m_GameObject: {fileID: 990733185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.000002, y: -9.5, z: -10}
+  m_LocalPosition: {x: -8.000001, y: -9.5, z: -10}
   m_LocalScale: {x: 0.39917797, y: 0.50316554, z: 1.8635759}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17282,7 +17282,7 @@ Transform:
   m_GameObject: {fileID: 1502349272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.000002, y: -9.5, z: -10}
+  m_LocalPosition: {x: -8.000001, y: -9.5, z: -10}
   m_LocalScale: {x: 3, y: 0.15359999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18358,6 +18358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controladorGolpe: {fileID: 794295671}
   radioGolpe: 1
+  animator: {fileID: 2090129678}
 --- !u!4 &2108828965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9129066686294336490, guid: e1c442372092cfd449f226b1d9b0a838, type: 3}

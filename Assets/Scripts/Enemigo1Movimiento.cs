@@ -128,12 +128,20 @@
                 GameManager.Instance.RestarVida(1);
             }
 
-            //si el enemigo se encuentra con Ground cambia de direccion
+            //APENAS CHOQUE CON EL MAPA , CAMBIA DE DIRECCION
             if (collision.gameObject.CompareTag("Ground"))
         {
-                esDerecha = !esDerecha;
+                if (esDerecha)
+            {
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                else
+            {
+                    transform.position += Vector3.right * speed * Time.deltaTime;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
             }
-
 
         }
     }
