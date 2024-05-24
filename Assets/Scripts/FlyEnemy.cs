@@ -81,7 +81,7 @@ public class FlyEnemy : MonoBehaviour
             //QUITAR VIDA AL JUGADOR
 
 
-            GameManager.Instance.RestarVida(0);
+            GameManager.Instance.RestarVida(1);
 
         }
     }
