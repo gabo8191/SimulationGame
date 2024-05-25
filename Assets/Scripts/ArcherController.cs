@@ -14,12 +14,19 @@ public class ArcherController : MonoBehaviour
     private Vector3 endPosition;
     private float moveTimer;
     private float moveDuration = 1.0f;
+    private Health healthComponent;
 
     void Start()
     {
         startPosition = transform.position;
         endPosition = new Vector3(startPosition.x + 5, startPosition.y, startPosition.z);
         shootingTimer = shootingInterval;
+        healthComponent = gameObject.GetComponent<Health>();
+        if (healthComponent == null)
+        {
+            healthComponent = gameObject.AddComponent<Health>();
+            healthComponent.maxHealth = 100;  // Establecer salud máxima
+        }
     }
 
     void Update()
@@ -48,6 +55,16 @@ public class ArcherController : MonoBehaviour
         {
             playerInRange = false;
         }
+    }
+
+    public void TomarDaño(float daño)
+    {
+        healthComponent.TakeDamage(10);
+    }
+
+    private void Muerte()
+    {
+        Destroy(gameObject);
     }
 
     void MoveBackAndForth()

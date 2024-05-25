@@ -24,6 +24,11 @@ public class Arrow : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player")){
+            CharacterController playerController = other.GetComponent<CharacterController>();
+            if (playerController != null)
+            {
+                GameManager.Instance.RestarVida(1);
+            }
             DestroyProyectile();
         }
     }

@@ -88,6 +88,7 @@ public class FlyEnemy : MonoBehaviour
 
     public void TomarDaño(float daño)
     {
+        Debug.Log("Toma daño");
         healthComponent.TakeDamage(daño);
     }
 
