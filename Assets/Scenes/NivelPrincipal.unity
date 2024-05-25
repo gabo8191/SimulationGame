@@ -45242,7 +45242,7 @@ Transform:
   m_GameObject: {fileID: 990733185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9999988, y: -9.5, z: -10}
+  m_LocalPosition: {x: 47.969997, y: 22.39, z: -10}
   m_LocalScale: {x: 0.39917797, y: 0.50316554, z: 1.8635759}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46270,6 +46270,7 @@ GameObject:
   - component: {fileID: 1411985402}
   - component: {fileID: 1411985403}
   - component: {fileID: 1411985404}
+  - component: {fileID: 1411985405}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -46303,7 +46304,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!95 &1411985399
 Animator:
   serializedVersion: 5
@@ -46386,7 +46387,7 @@ Transform:
   m_GameObject: {fileID: 1411985396}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.327, y: 23.032, z: 0}
+  m_LocalPosition: {x: 43.66, y: 23.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46459,6 +46460,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+--- !u!61 &1411985405
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411985396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1429595758
 GameObject:
   m_ObjectHideFlags: 0
@@ -46645,7 +46691,7 @@ Transform:
   m_GameObject: {fileID: 1502349272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9999988, y: -9.5, z: -10}
+  m_LocalPosition: {x: 47.969997, y: 22.39, z: -10}
   m_LocalScale: {x: 3, y: 0.15359999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47715,7 +47761,7 @@ Transform:
   m_GameObject: {fileID: 2090129672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -9.5, z: 0}
+  m_LocalPosition: {x: 47.97, y: 22.39, z: 0}
   m_LocalScale: {x: 0.83587635, y: 0.965686, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
