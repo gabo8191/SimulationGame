@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private int puntosTotales = 0;
     public HUD HUD;
-    public int vidas = 3;
+    public int vidas = 10;
 
     public static GameManager Instance;
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     }
     public bool RecuperarVida()
     {
-        if(vidas == 3)
+        if(vidas == 10)
         {
             return false;
         }
