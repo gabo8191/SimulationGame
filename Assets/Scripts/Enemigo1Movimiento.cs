@@ -23,45 +23,38 @@ public class Enemigo1Movimiento : MonoBehaviour
 
 
     public Transform objetivo;
-    public float distancia; // Qu� tan lejos est� el enemigo del objetivo
+    public float distancia;
     public float distanciaAbsoluta;
 
     private Health healthComponent;
 
     void Start()
     {
-        // Inicializamos el contador con el tiempo configurado para cambiar de direcci�n
         contadorT = tiempoParaCambiar;
 
-        // Inicializamos la semilla con un valor arbitrario
         seed = Random.Range(0f, m);
 
-        // Invocamos el m�todo saltar a intervalos regulares
-        InvokeRepeating("Saltar", 2f, 3f);
+        InvokeRepeating(nameof(Saltar), 2f, 3f);
 
         rbd = GetComponent<Rigidbody2D>();
 
-        // Desactiva la rotaci�n del Rigidbody2D
         rbd.freezeRotation = true;
 
         healthComponent = gameObject.GetComponent<Health>();
         if (healthComponent == null)
         {
             healthComponent = gameObject.AddComponent<Health>();
-            healthComponent.maxHealth = 100;  // Establecer salud máxima
+            healthComponent.maxHealth = 100;
         }
 
     }
 
     void Update()
     {
-        // Calculamos la distancia entre el enemigo y el objetivo
         distanciaAbsoluta = Vector2.Distance(transform.position, objetivo.position);
 
-        // Si el objetivo est� lo suficientemente cerca, perseguirlo
         if (distanciaAbsoluta < distancia)
         {
-            // Movimiento del enemigo hacia el objetivo
             if (transform.position.x < objetivo.position.x)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
@@ -77,7 +70,6 @@ public class Enemigo1Movimiento : MonoBehaviour
         }
         else
         {
-            // Si el objetivo est� lejos, seguir movi�ndose pseudoaleatoriamente
             if (esDerecha)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
@@ -90,47 +82,34 @@ public class Enemigo1Movimiento : MonoBehaviour
             }
         }
 
-        // Decrementamos el contador de tiempo
         contadorT -= Time.deltaTime;
 
-        // Verificamos si es momento de evaluar un cambio de direcci�n
         if (contadorT <= 0)
         {
-            // Reiniciamos el contador
             contadorT = tiempoParaCambiar;
 
-            // Generamos un n�mero pseudoaleatorio
             seed = LinearCongruentialGenerator(seed, a, c, m);
 
-            // Determinamos la nueva direcci�n bas�ndonos en el n�mero generado
             esDerecha = (seed / m) < 0.5f;
         }
 
-        // Aseguramos que la rotaci�n del enemigo sea siempre cero en el eje Z
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 
     void Saltar()
     {
-        // A�adimos una fuerza hacia arriba para simular el salto
         rbd.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
 
-        // Opcional: cambiar de direcci�n despu�s de un salto
         seed = LinearCongruentialGenerator(seed, a, c, m);
         esDerecha = (seed / m) < 0.5f;
     }
 
-    // M�todo de congruencia lineal para generar n�meros pseudoaleatorios
     float LinearCongruentialGenerator(float seed, float a, float c, float m)
     {
         return (a * seed + c) % m;
     }
 
-    //CONFIGURAR LA GRAVEDAD
-
-
-    //QUITAR VIDA AL JUGADOR
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -138,7 +117,6 @@ public class Enemigo1Movimiento : MonoBehaviour
             GameManager.Instance.RestarVida(1);
         }
 
-        //APENAS CHOQUE CON EL MAPA , CAMBIA DE DIRECCION
         if (collision.gameObject.CompareTag("Ground"))
         {
             if (esDerecha)
