@@ -45375,7 +45375,7 @@ GameObject:
   - component: {fileID: 960071970}
   m_Layer: 0
   m_Name: Boss2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45554,7 +45554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   patrolDistance: 5
-  attackRange: 3
+  attackRange: 4
+  attackCooldown: 3
 --- !u!114 &960071968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45878,7 +45879,7 @@ Transform:
   m_GameObject: {fileID: 990733185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9999986, y: 20.5, z: -10}
+  m_LocalPosition: {x: 164.8, y: -6.8, z: -10}
   m_LocalScale: {x: 0.39917797, y: 0.50316554, z: 1.8635759}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46725,7 +46726,7 @@ GameObject:
   - component: {fileID: 1306353507}
   m_Layer: 0
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46772,6 +46773,7 @@ MonoBehaviour:
   moveSpeed: 2
   patrolDistance: 2
   attackRange: 5
+  attackCooldown: 3
 --- !u!50 &1306353502
 Rigidbody2D:
   serializedVersion: 4
@@ -47299,7 +47301,7 @@ GameObject:
   - component: {fileID: 1391784966}
   m_Layer: 0
   m_Name: Boss3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47524,6 +47526,7 @@ MonoBehaviour:
   moveSpeed: 2
   patrolDistance: 5
   attackRange: 3
+  attackCooldown: 3
 --- !u!114 &1391784965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48175,7 +48178,7 @@ Transform:
   m_GameObject: {fileID: 1502349272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9999986, y: 20.5, z: -10}
+  m_LocalPosition: {x: 164.8, y: -6.8, z: -10}
   m_LocalScale: {x: 3, y: 0.15359999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48202,7 +48205,7 @@ GameObject:
   - component: {fileID: 1529514919}
   m_Layer: 0
   m_Name: Boss4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48394,6 +48397,7 @@ MonoBehaviour:
   moveSpeed: 2
   patrolDistance: 5
   attackRange: 5
+  attackCooldown: 3
 --- !u!114 &1529514917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49880,7 +49884,7 @@ Transform:
   m_GameObject: {fileID: 2090129672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 20.5, z: 0}
+  m_LocalPosition: {x: 164.8, y: -6.8, z: 0}
   m_LocalScale: {x: 0.83587635, y: 0.965686, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

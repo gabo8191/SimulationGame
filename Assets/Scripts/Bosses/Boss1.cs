@@ -13,6 +13,8 @@ public class Boss1 : MonoBehaviour
     private Animator animator;
     private Health healthComponent;
 
+    public float attackCooldown = 3f;  // Tiempo entre ataques en segundos
+    private float lastAttackTime = 0;  // Cuándo ocurrió el último ataque
 
     private void Start()
     {
@@ -20,7 +22,6 @@ public class Boss1 : MonoBehaviour
         currentTarget = originalX + patrolDistance;
         animator = GetComponent<Animator>();
         combatBoss = GetComponent<CombatBoss>();
-        healthComponent = gameObject.GetComponent<Health>();
         if (healthComponent == null)
         {
             healthComponent = gameObject.AddComponent<Health>();
@@ -30,13 +31,13 @@ public class Boss1 : MonoBehaviour
     private void Update()
     {
         Patrol();
-        if (playerInRange)
+        if (playerInRange && Time.time > lastAttackTime + attackCooldown)
         {
             AttackPlayer();
         }
         else
         {
-            animator.SetBool("isAttacking", false);  // Asegurarse de que no esté atacando si el jugador no está en rango
+            animator.SetBool("isAttacking", false);
         }
     }
 
@@ -47,47 +48,29 @@ public class Boss1 : MonoBehaviour
 
         if (Mathf.Abs(transform.position.x - currentTarget) < 0.01f)
         {
-            if (currentTarget == originalX + patrolDistance)
-            {
-                currentTarget = originalX - patrolDistance;
-                movingRight = false;  // Cambia la dirección a la izquierda
-            }
-            else
-            {
-                currentTarget = originalX + patrolDistance;
-                movingRight = true;  // Cambia la dirección a la derecha
-            }
+            currentTarget = movingRight ? originalX - patrolDistance : originalX + patrolDistance;
+            movingRight = !movingRight;
+            transform.localScale = new Vector3(movingRight ? 2.8321f : -2.8321f, 2.284f, 1);
         }
-
-        // Cambiar la dirección de la imagen basada en la dirección de movimiento
-        // Asegurarse de mantener el mismo tamaño estableciendo la escala Y y Z a 1
-        if (movingRight)
-            transform.localScale = new Vector3(2.8321f, 2.284f, 1);  // Orientación normal
-        else
-            transform.localScale = new Vector3(-2.8321f, 2.284f, 1);  // Invertir horizontalmente
     }
-
 
     private void AttackPlayer()
     {
-        animator.SetBool("isAttacking", true);  // Activar la animación de ataque
+        animator.SetBool("isAttacking", true);
         combatBoss.ExecuteAttack();
+        lastAttackTime = Time.time;  // Actualizar el tiempo del último ataque
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && Vector2.Distance(transform.position, collision.transform.position) <= attackRange)
-        {
             playerInRange = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             playerInRange = false;
-        }
     }
 
     public void TomarDaño(float daño)
