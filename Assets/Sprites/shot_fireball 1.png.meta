@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 263e8311a9a1f6e4282e121d4f83369c
+guid: 2fbd6d564cd4fe7489f85f13cb444bd9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shot_fireball_0
+      name: shot_fireball 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 031ee4409b6baa54c87b907901f67afd
-      internalID: 1242775669
+      spriteID: d1473bd43cff9bc48b9c49c14abb4179
+      internalID: -1571940250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shot_fireball_1
+      name: shot_fireball 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d2a5b9ce78c04149847f29b6e7f6245
-      internalID: -1107575080
+      spriteID: 01087f0d2dee7224d938c93676a4936f
+      internalID: 1290150204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shot_fireball_2
+      name: shot_fireball 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3006aa1928c079045abdcb2069c15c59
-      internalID: -659727006
+      spriteID: b4d3d3e1db1344f45b16bd44fc237161
+      internalID: 2102015932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shot_fireball_3
+      name: shot_fireball 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1673be03898625e4bb37cea7f280bc45
-      internalID: -661286419
+      spriteID: c0a2e7d16d383a24daa4977d9d86f7d4
+      internalID: 2133942266
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shot_fireball_0: 1242775669
-      shot_fireball_1: -1107575080
-      shot_fireball_2: -659727006
-      shot_fireball_3: -661286419
+      shot_fireball 1_0: -1571940250
+      shot_fireball 1_1: 1290150204
+      shot_fireball 1_2: 2102015932
+      shot_fireball 1_3: 2133942266
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
