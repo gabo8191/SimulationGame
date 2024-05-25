@@ -10,7 +10,9 @@ public class Boss1 : MonoBehaviour
     public float attackRange = 3f;
     private bool playerInRange = false;
     private CombatBoss combatBoss;
-    private Animator animator;  // Referencia al Animator
+    private Animator animator;
+    private Health healthComponent;
+
 
     private void Start()
     {
@@ -18,6 +20,11 @@ public class Boss1 : MonoBehaviour
         currentTarget = originalX + patrolDistance;
         animator = GetComponent<Animator>();
         combatBoss = GetComponent<CombatBoss>();
+        healthComponent = gameObject.GetComponent<Health>();
+        if (healthComponent == null)
+        {
+            healthComponent = gameObject.AddComponent<Health>();
+        }
     }
 
     private void Update()
@@ -81,5 +88,15 @@ public class Boss1 : MonoBehaviour
         {
             playerInRange = false;
         }
+    }
+
+    public void TomarDaño(float daño)
+    {
+        healthComponent.TakeDamage(10);
+    }
+
+    private void Muerte()
+    {
+        Destroy(gameObject);
     }
 }

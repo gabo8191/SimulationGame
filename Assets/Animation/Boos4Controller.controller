@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 123763a053eb6c540b0f77b89dbd511f, type: 2}
+  m_Motion: {fileID: 7400000, guid: d5a63ab9a6bf0db41bed0d6ff5108003, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -33,7 +33,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoosController
+  m_Name: Boos4Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isAttacking
@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8599d26d1e5400a4d857ff535d211093, type: 2}
+  m_Motion: {fileID: 7400000, guid: e72880e1abe0abc419d51493ce778788, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
