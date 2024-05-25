@@ -17179,7 +17179,7 @@ GameObject:
   - component: {fileID: 422792239}
   m_Layer: 6
   m_Name: Plataformas
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36767,7 +36767,7 @@ Transform:
   m_GameObject: {fileID: 990733185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.1, y: 23.7, z: -10}
+  m_LocalPosition: {x: 2.999998, y: -9.5, z: -10}
   m_LocalScale: {x: 0.39917797, y: 0.50316554, z: 1.8635759}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38227,7 +38227,7 @@ Transform:
   m_GameObject: {fileID: 1502349272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.1, y: 23.7, z: -10}
+  m_LocalPosition: {x: 2.999998, y: -9.5, z: -10}
   m_LocalScale: {x: 3, y: 0.15359999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39819,7 +39819,7 @@ Transform:
   m_GameObject: {fileID: 2090129672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.1, y: 23.7, z: 0}
+  m_LocalPosition: {x: 3, y: -9.5, z: 0}
   m_LocalScale: {x: 0.83587635, y: 0.965686, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40135,7 +40135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 924845721193449872, guid: a24ab266a3dc3584182e7e7feb116c56, type: 3}
       propertyPath: m_Constraints
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 924845721193449872, guid: a24ab266a3dc3584182e7e7feb116c56, type: 3}
       propertyPath: m_GravityScale
@@ -40143,7 +40143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5349779380623370984, guid: a24ab266a3dc3584182e7e7feb116c56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5349779380623370984, guid: a24ab266a3dc3584182e7e7feb116c56, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40203,7 +40203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7458924201585575466, guid: a24ab266a3dc3584182e7e7feb116c56, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7854318705729094274, guid: a24ab266a3dc3584182e7e7feb116c56, type: 3}
       propertyPath: objetivo

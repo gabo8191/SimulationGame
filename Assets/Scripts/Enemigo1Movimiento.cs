@@ -39,6 +39,8 @@ public class Enemigo1Movimiento : MonoBehaviour
         // Invocamos el m�todo saltar a intervalos regulares
         InvokeRepeating("Saltar", 2f, 3f);
 
+        rbd = GetComponent<Rigidbody2D>();
+
         // Desactiva la rotaci�n del Rigidbody2D
         rbd.freezeRotation = true;
 
