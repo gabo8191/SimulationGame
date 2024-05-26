@@ -10,6 +10,8 @@
         private float seed;  // Semilla para el generador de números pseudoaleatorios
         //animacion de golpe
         public Animator animator;
+    //AUDIO DE GOLPE
+    public AudioClip audioSource;
         private void Start()
         {
             animator = GetComponent<Animator>();
@@ -28,6 +30,9 @@
     {
         // Activar la animación de golpe
         animator.SetTrigger("Golpear");
+        //AUDIO DE GOLPE
+        AudioManager.Instance.ReproducirSonido(audioSource);
+
         yield return null;
 
 

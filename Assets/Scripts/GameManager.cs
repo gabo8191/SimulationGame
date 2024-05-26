@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour
         {
             return false;
         }
-        HUD.activarVida(vidas);
         vidas++;
+        HUD.activarVida(vidas);
         return true;
     }
 

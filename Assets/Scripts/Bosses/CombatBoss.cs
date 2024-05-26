@@ -3,6 +3,8 @@ using UnityEngine;
 public class CombatBoss : MonoBehaviour
 {
     private float seed;
+  
+
 
     private void Start()
     {

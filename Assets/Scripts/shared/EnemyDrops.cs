@@ -4,14 +4,14 @@ using UnityEngine;
 public class EnemyDrops : MonoBehaviour
 {
     public List<GameObject> possibleDrops;
-    private string lastDrop = "None";
+    private string lastDrop = "EmptyPrefab";
 
     private Dictionary<string, float[]> dropChances = new Dictionary<string, float[]>
     {
-        {"None", new float[] {0.4f, 0.3f, 0.2f, 0.1f}},
-        {"Green Flask", new float[] {0.3f, 0.4f, 0.2f, 0.1f}},
-        {"Red Flask", new float[] {0.2f, 0.3f, 0.4f, 0.1f}},
-        {"Blue Flask", new float[] {0.4f, 0.2f, 0.3f, 0.1f}}
+        {"EmptyPrefab", new float[] {0.4f, 0.3f, 0.2f, 0.1f}},
+        {"Drop2", new float[] {0.3f, 0.4f, 0.2f, 0.1f}},
+        {"Drop1", new float[] {0.2f, 0.3f, 0.4f, 0.1f}},
+        {"Drop3", new float[] {0.4f, 0.2f, 0.3f, 0.1f}}
     };
 
     public void DropItem()

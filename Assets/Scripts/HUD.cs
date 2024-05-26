@@ -40,7 +40,7 @@ public class HUD : MonoBehaviour
     public void activarVida(int vidasActuales)
     {
         // Activar el corazón correspondiente a la próxima vida recuperada
-        if (vidasActuales < vidas.Length)
+        if (vidasActuales <= vidas.Length)
         {
             vidas[vidasActuales - 1].SetActive(true);
         }
