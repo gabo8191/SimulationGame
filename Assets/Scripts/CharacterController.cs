@@ -1,8 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
+/*
+ * Este script controla el comportamiento del personaje principal.
+ */
 public class CharacterController : MonoBehaviour
 {
+    /*
+     * velocidad: velocidad del personaje.
+     * fuerzaSalto: fuerza con la que salta el personaje.
+     * fuerzaGolpe: fuerza del golpe.
+     * saltosMaximos: cantidad máxima de saltos que puede realizar el personaje.
+     * capaSuelo: capa del suelo, necesario para detectar si el personaje está en el suelo.
+     * sonidoSalto: sonido que se reproduce al saltar.
+     * 
+     * rigidBody: componente Rigidbody2D del personaje.
+     * boxCollider: componente BoxCollider2D del personaje.
+     * mirandoDerecha: indica si el personaje está mirando a la derecha.
+     * saltosRestantes: cantidad de saltos que le quedan al personaje.
+     * animator: componente Animator del personaje.
+     * puedeMoverse: indica si el personaje puede moverse.
+     * impulsoActivo: indica si el impulso está activo.
+     *    
+     *    Instance: instancia de la clase CharacterController.
+     */
+
     public float velocidad;
     public float fuerzaSalto;
     public float fuerzaGolpe;
@@ -20,6 +42,11 @@ public class CharacterController : MonoBehaviour
 
     public static CharacterController Instance;
 
+    /*
+     * Este método se llama al inicio del juego, se encarga de obtener los componentes Rigidbody2D y BoxCollider2D del personaje.
+     * Además, inicializa la cantidad de saltos restantes y obtiene el componente Animator.
+     */
+
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -30,12 +57,20 @@ public class CharacterController : MonoBehaviour
         Instance = this;
     }
 
-    // Update is called once per frame
+    /*
+     * Este método se llama en cada frame, se encarga de procesar el movimiento y el salto del personaje.
+     */
+
     void Update()
     {
         ProcesarMovimiento();
         ProcesarSalto();
     }
+
+    /*
+     *Este método se encarga de detectar si el personaje está en el suelo.
+     *Devuelve true si el personaje está en el suelo, de lo contrario, devuelve false.
+     */
 
     bool EstaEnSuelo()
     {
@@ -43,6 +78,11 @@ public class CharacterController : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+    /*
+     * Este método se encarga de procesar el salto del personaje.
+     * El personaje puede saltar si está en el suelo o si le quedan saltos restantes.
+     * Si el personaje salta, se reproduce el sonido de salto.
+     */
     void ProcesarSalto()
     {
         if (EstaEnSuelo())
@@ -59,6 +99,15 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    /*
+     *Este método se encarga de procesar el movimiento del personaje.
+     *El personaje se mueve en el eje horizontal según la entrada del jugador.
+     *Si el personaje se mueve, se activa la animación de correr.
+     *Si el personaje no se mueve, se desactiva la animación de correr.
+     *Si el personaje recibe un golpe, se desactiva la posibilidad de moverse durante un tiempo.
+     *Si el impulso está activo, la velocidad del personaje se duplica.
+     *Si el personaje cambia de dirección, se invierte la escala en el eje x.
+     */
     void ProcesarMovimiento()
     {
         if (!puedeMoverse) return;
@@ -79,6 +128,11 @@ public class CharacterController : MonoBehaviour
         GestionarOrientacion(inputMovimiento);
     }
 
+    /*
+     *Este método se encarga de gestionar la orientación del personaje.
+     *Si el personaje está mirando a la derecha y la entrada del jugador es negativa, o si el personaje está mirando a la izquierda y la entrada del jugador es positiva, se invierte la escala en el eje x.
+     */
+
     void GestionarOrientacion(float inputMovimiento)
     {
         if ((mirandoDerecha == true && inputMovimiento < 0) || (mirandoDerecha == false && inputMovimiento > 0))
@@ -88,12 +142,17 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    /*
+     *Este método se encarga de aplicar un golpe al personaje.
+     *El personaje no puede moverse durante un tiempo después de recibir un golpe.
+     *El personaje recibe un impulso en la dirección opuesta a la que se mueve.
+     *Después de un tiempo, el personaje puede moverse de nuevo.
+     */
+
     public void AplicarGolpe()
     {
         puedeMoverse = false;
-
         Vector2 direccionGolpe;
-
         if (rigidBody.velocity.x > 0)
         {
             direccionGolpe = new Vector2(-1, 1);
@@ -102,11 +161,13 @@ public class CharacterController : MonoBehaviour
         {
             direccionGolpe = new Vector2(1, 1);
         }
-
         rigidBody.AddForce(direccionGolpe * fuerzaGolpe);
-
         StartCoroutine(EsperarYActivarMovimiento());
     }
+
+    /*
+     *Este método se encarga de esperar un tiempo y activar la posibilidad de moverse.
+     */
 
     IEnumerator EsperarYActivarMovimiento()
     {
@@ -116,14 +177,21 @@ public class CharacterController : MonoBehaviour
         {
             yield return null;
         }
-
         puedeMoverse = true;
     }
 
+    /*
+     *Este método se encarga de activar el impulso del personaje.
+     *El personaje aumenta su velocidad durante un tiempo.
+     */
     public void ActivarImpulso()
     {
-        StartCoroutine(AumentarVelocidadPorTiempo(2f, 5f)); // Multiplica velocidad por 2 durante 5 segundos
+        StartCoroutine(AumentarVelocidadPorTiempo(2f, 5f));
     }
+
+    /*
+     * Este método se encarga de aumentar la velocidad del personaje durante un tiempo.
+     */
 
     IEnumerator AumentarVelocidadPorTiempo(float factor, float duracion)
     {
@@ -132,10 +200,19 @@ public class CharacterController : MonoBehaviour
         impulsoActivo = false;
     }
 
+    /*
+     *Este método se encarga de activar el salto del personaje.
+     *El personaje aumenta la fuerza de salto durante un tiempo.
+     */
+
     public void ActivarSalto()
     {
-        StartCoroutine(AumentarFuerzaSaltoPorTiempo(2f, 5f)); // Multiplica fuerza de salto por 2 durante 5 segundos
+        StartCoroutine(AumentarFuerzaSaltoPorTiempo(2f, 5f));
     }
+
+    /*
+     *Este método se encarga de aumentar la fuerza de salto del personaje durante un tiempo.
+     */
 
     IEnumerator AumentarFuerzaSaltoPorTiempo(float factor, float duracion)
     {
@@ -144,18 +221,25 @@ public class CharacterController : MonoBehaviour
         fuerzaSalto /= factor;
     }
 
+    /*
+     *Este método se encarga de aumentar la vida del personaje. 
+     *Por medio de una corrutina, que es un método que se ejecuta en paralelo con el resto del código.
+     */
+
     public void AumentarVida()
     {
-        StartCoroutine(RecuperarVida()); // Recuperar una vida
+        StartCoroutine(RecuperarVida());
     }
 
+    /*
+     *ste método se encarga de recuperar la vida del personaje.
+     */
     IEnumerator RecuperarVida()
     {
         bool vidaRecuperada = GameManager.Instance.RecuperarVida();
         if (!vidaRecuperada)
         {
             yield break;
-
         }
         yield return null;
     }
