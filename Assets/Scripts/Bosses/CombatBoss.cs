@@ -24,15 +24,15 @@ public class CombatBoss : MonoBehaviour
 
         if (rand < 0.6)  
         {
-            return Random.Range(1, 3);  
+            return Random.Range(1, 2);  
         }
         else if (rand < 0.9)  
         {
-            return Random.Range(3, 5);  
+            return Random.Range(2, 3);  
         }
         else 
         {
-            return Random.Range(5, 7);  
+            return Random.Range(3, 5);  
         }
     }
 }
