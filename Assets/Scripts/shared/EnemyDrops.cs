@@ -8,10 +8,10 @@ public class EnemyDrops : MonoBehaviour
 
     private Dictionary<string, float[]> dropChances = new Dictionary<string, float[]>
     {
-        {"EmptyPrefab", new float[] {0.4f, 0.3f, 0.2f, 0.1f}},
-        {"Drop2", new float[] {0.3f, 0.4f, 0.2f, 0.1f}},
-        {"Drop1", new float[] {0.2f, 0.3f, 0.4f, 0.1f}},
-        {"Drop3", new float[] {0.4f, 0.2f, 0.3f, 0.1f}}
+        {"EmptyPrefab", new float[] {0.7f, 0.1f, 0.1f, 0.1f}},  
+        {"Drop1", new float[] {0.6f, 0.2f, 0.1f, 0.1f}},  
+        {"Drop2", new float[] {0.6f, 0.1f, 0.2f, 0.1f}},    
+        {"Drop3", new float[] {0.6f, 0.1f, 0.1f, 0.2f}}    
     };
 
     public void DropItem()
